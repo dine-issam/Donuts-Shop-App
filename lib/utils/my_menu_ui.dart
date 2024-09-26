@@ -57,9 +57,9 @@ class MyMenuUi extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Text(
-              "Nuts Caramel",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            Text(
+              itemName,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             const Text("Dunkin's"),
             const SizedBox(

@@ -1,4 +1,5 @@
 import 'package:donuts_app/model/item_model.dart';
+import 'package:donuts_app/pages/info_page.dart';
 import 'package:donuts_app/utils/my_item_ui.dart';
 import 'package:donuts_app/utils/my_menu_ui.dart';
 import 'package:flutter/material.dart';
@@ -41,36 +42,46 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(
               height: 95,
-              child: Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: itemModel.itemList.length,
-                  itemBuilder: (context, index) {
-                    var itemList = itemModel.itemList[index];
-                    return MyItemUi(
-                      imagePath: itemList[1],
-                      title: itemList[0],
-                    );
-                  },
-                ),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: itemModel.itemList.length,
+                itemBuilder: (context, index) {
+                  var itemList = itemModel.itemList[index];
+                  return MyItemUi(
+                    imagePath: itemList[1],
+                    title: itemList[0],
+                  );
+                },
               ),
             ),
             Expanded(
               child: GridView.builder(
-                  itemCount: 6,
+                  itemCount: itemModel.itemMenu['Donuts'].length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 1 / 1.3,
                   ),
                   itemBuilder: (context, index) {
-                    var item = itemModel.itemMenu[0]['Donuts'][index];
-                    return MyMenuUi(
-                      itemName: item[0],
-                      itemPrice: item[1],
-                      itemImage: item[2],
-                      itemColor: item[3],
-                      secondColor: item[4],
-                      priceColor: item[5],
+                    var item = itemModel.itemMenu['Donuts'][index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => InfoPage(
+                                      itemName: item[0],
+                                      itemImage: item[2],
+                                      itemPrice: item[1],
+                                    )));
+                      },
+                      child: MyMenuUi(
+                        itemName: item[0],
+                        itemPrice: item[1],
+                        itemImage: item[2],
+                        itemColor: item[3],
+                        secondColor: item[4],
+                        priceColor: item[5],
+                      ),
                     );
                   }),
             ),
