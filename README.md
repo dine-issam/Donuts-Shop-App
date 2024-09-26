@@ -66,4 +66,4 @@ This project is licensed under the MIT License – see the [LICENSE](LICENSE) fi
 
 ## Contact
 
-For any questions or feedback, feel free to reach out to me on [LinkedIn](https://linktr.ee/your-username).
+For any questions or feedback, feel free to reach out to me on [LinkedIn](https://linktr.ee/DineIssam).
